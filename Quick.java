@@ -62,6 +62,21 @@ public class Quick{
   }
 
   public static int quickselect(int[] data, int k){
-    
+    //Set the pivot value from partition
+    int pivot = partition(data, 0, data.length - 1);
+    //While pivot isn't equal to k....
+    while (pivot != k){
+      //If the pivot is greater than k, partition on the lower section
+      if (pivot > k){
+        partition(data, 0, k - 1);
+      }
+      //Else (meaning pivot is greater than k), partition on the higher section
+      else{
+        partition(data, k + 1, data.length - 1);
+      }
+    }
+    //If the function gets here, then pivot should be equal to k, so return the
+    //value at the pivot
+    return data[pivot];
   }
 }
