@@ -73,11 +73,11 @@ public class Quick{
     while (pivot != k){
       //If the pivot is greater than k, partition on the lower section
       if (pivot > k){
-        partition(data, 0, k - 1);
+        pivot = partition(data, 0, pivot - 1);
       }
       //Else (meaning pivot is greater than k), partition on the higher section
       else{
-        partition(data, k + 1, data.length - 1);
+        pivot = partition(data, pivot + 1, data.length - 1);
       }
     }
     //If the function gets here, then pivot should be equal to k, so return the
