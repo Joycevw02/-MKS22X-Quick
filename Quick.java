@@ -57,8 +57,13 @@ public class Quick{
      return i - 1;
    }
   }
-  //Shouldn't return this, but needed to compile
-    return -1;
+
+  //If it gets to this point, then the pivot should be the last point
+  temp = data[end];
+  data[end] = data[pivot];
+  data[pivot] = temp;
+
+  return end;
   }
 
   public static int quickselect(int[] data, int k){
