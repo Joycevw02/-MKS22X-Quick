@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 public class Quick{
   public static int partition (int[] data, int start, int end){
    //If end is equal to the start, return start
@@ -67,6 +69,9 @@ public class Quick{
   }
 
   public static int quickselect(int[] data, int k){
+    if (k < 0 || k >= data.length){
+      throw new IllegalArgumentException();
+    }
     //Set the pivot value from partition
     int pivot = partition(data, 0, data.length - 1);
     //While pivot isn't equal to k....
@@ -86,10 +91,15 @@ public class Quick{
   }
 
   public static void quicksort(int[] data){
-
+    sorthelp(data, 0, data.length - 1);
   }
 
   private static void sorthelp(int[] data, int lo, int hi){
-    
+    if (lo >= hi){
+      return;
+    }
+    int pivot = partition(data, lo, hi);
+    sorthelp(data, lo, pivot - 1);
+    sorthelp(data, pivot + 1, hi);
   }
 }

@@ -67,24 +67,24 @@ public class MDriver{
     for (int i = 1; i < tests; i++){
       int[] data1 = new int[i];
       fillRandom(data1);
-//
-//      Quick.quicksort(data1);
-//      int[] answer1 = new int[i];
-//      for (int j = 0;j < i;j++) {
-//        answer1[j] = data1[j];
-//      }
-//      insertionSort(answer1);
-//      boolean status = true;
-//      for (int k = 0;k < i;k++) {
-//        if (data1[k] != answer1[k]) {
-//          status = false;
-//        }
-//      }
-//      //printArray(data1);
-//      //printArray(answer1);
-//      if (status == true) {
-//        sucesses++;
-//      }
+
+      Quick.quicksort(data1);
+      int[] answer1 = new int[i];
+      for (int j = 0;j < i;j++) {
+        answer1[j] = data1[j];
+      }
+      insertionSort(answer1);
+      boolean status = true;
+      for (int k = 0;k < i;k++) {
+        if (data1[k] != answer1[k]) {
+          status = false;
+        }
+      }
+      //printArray(data1);
+      //printArray(answer1);
+      if (status == true) {
+        sucesses++;
+      }
     }
     System.out.println("You have had " + sucesses + " sucesses and " + (tests-sucesses-1) + " failures.");
     System.out.println( (sucesses == tests-1 ? "CONGRATULATIONS!!!" : "Uh Oh")+" Thats " + (sucesses / (tests-1.0)) * 100 + "% sucess rate.");
