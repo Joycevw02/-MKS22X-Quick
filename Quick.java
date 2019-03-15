@@ -84,4 +84,12 @@ public class Quick{
     //value at the pivot
     return data[pivot];
   }
+
+  public static void quicksort(int[] data){
+
+  }
+
+  private static void sorthelp(int[] data, int lo, int hi){
+    
+  }
 }
