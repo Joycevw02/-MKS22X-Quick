@@ -102,4 +102,26 @@ public class Quick{
     sorthelp(data, lo, pivot - 1);
     sorthelp(data, pivot + 1, hi);
   }
+
+  private static void insertionSort(int[] data, int lo, int hi){
+   //For the length of data, starting from index lo + 1 (because index lo is
+   //sorted), check the index in front of the current one
+   //Current is the integer we are looking at and index is the current index
+   //While the index is greater than lo and current is less than the previous
+   //one, the value at the current index is equal to the previous one and the
+   //index is lowered. The loop terminates when it reaches the end of the array
+   //or the previous value is less than current, meaning that current is in the
+   //correct place. After it has found the correct place, set the value at the
+   //correct index to current
+   for (int i = lo + 1; i < hi; i ++){
+     int current = data[i];
+     int index = i;
+     while (index > lo && current < data[index - 1]){
+       data[index] = data[index - 1];
+       index --;
+     }
+     data[index] = current;
+   }
+ }
+
 }
